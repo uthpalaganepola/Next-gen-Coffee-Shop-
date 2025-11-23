@@ -1,0 +1,21 @@
+{
+  "name": "next-gen-coffee-shop-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uthpalaganepola/Next-gen-Coffee-Shop-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/uthpalaganepola/Next-gen-Coffee-Shop-/issues"
+  },
+  "homepage": "https://github.com/uthpalaganepola/Next-gen-Coffee-Shop-#readme"
+}
