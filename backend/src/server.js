@@ -1,24 +1,28 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-
-dotenv.config();
+import 'dotenv/config';
+import express from 'express';
+import connectDB from './config/db.js';
+import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
+
+// Middleware
 app.use(express.json());
-app.use(cors());
 
-// Simple test route
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
+// Routes
+app.use("/api/auth", authRoutes);
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+// Test route
+app.get('/', (req, res) => res.send('API is running'));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start server
+const start = async () => {
+  try {
+    await connectDB();
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+start();
